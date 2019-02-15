@@ -1,0 +1,33 @@
+Emily Zhang and Kaitlyn Lau
+
+1. g(n) = 2nlogn + 3n^2 + n + 1 is O(n^2).
+  g(n) < 2nlogn + 3nlogn + nlogn + nlogn
+       < 7nlogn
+       < C(nlogn) >> g(n) is O(n)
+2. see image attached
+3. public static int search(int lo, int hi){
+	      if (hi-lo == 1) return lo;
+	      int m = lo + (hi - lo) / 2;
+	      Scanner sys = new Scanner(System.in);
+	      System.out.println("Less than " + m + "?");
+	      boolean question = sys.nextBoolean();
+	      if (question) {
+		      hi = m;
+		      return search(lo, hi);
+	      }
+	      else{
+    		  lo = m;
+    		  return search(lo, hi);
+	      }
+	  }
+4. T(N) = T(N/2) + 1
+	T(N) = T(T(N/4) + 1) + 1
+	T(N) = T(T(T(N/8) + 1) + 1) + 1	... halves each time
+
+
+	T(N) <= log2(N) + 1
+	T(N) <= log2(N) + log2(N)
+	T(N) <= 2log2(N)
+	T(N) <= Clog2(N) >> O(log2(N))
+	T(N) <= 2log(N)
+	T(N) <= Clog(N) >> T(N) is O(log(N));
