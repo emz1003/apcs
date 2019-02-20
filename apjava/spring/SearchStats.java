@@ -7,7 +7,7 @@ public class SearchStats{
     System.out.println("     N   | Sequential | Binary    ");
     System.out.println("----------------------------------");
     int n = 10;
-    while (n < Math.pow(10,16)) {
+    while (n < Math.pow(10,8)) {
       Stopwatch sw = new Stopwatch();
       Stopwatch bw = new Stopwatch();
       int[] data = new int[n];
@@ -16,13 +16,11 @@ public class SearchStats{
       }
 
       int key = (int) (Math.random() * n);
-      System.out.println("key: " + key);
-      //System.out.println("data length" + data.length);
       sw.start();
-      System.out.println(SequentialSearchII.sequentialSearch(data, key));
+      SequentialSearchII.sequentialSearch(data, key);
       sw.stop();
       bw.start();
-      System.out.println(BinarySearchAlgorithm.binarySearch(data, key, 0, n));
+      BinarySearchAlgorithm.binarySearch(data, key, 0, n);
       bw.stop();
       System.out.printf("%-10d|%10f|%10f%n", n, sw.elapsedTime() * .001, bw.elapsedTime() * .001);
       if (Integer.parseInt(Integer.toString(n).substring(0, 1)) == 5) n *= 2;
