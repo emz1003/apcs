@@ -1,27 +1,20 @@
-public class InsertionSort{
-  public static void insertionSort(int[] data) {
+public class InsertionSort extends Sort{
+  @Override
+  public void sort(int[] data) {
     for (int i = 1; i < data.length; i++){
-      if(data[i] <= data[i - 1]) 
-      for (int j = 0; j < i; j++){
-        int temp = data[i];
-        data[i] = data[i - 1];
-        data[i - 1] = temp;
+      int mem = data[i];
+      int j = i;
+      while (j > 0 && data[j - 1] > mem) {
+        data[j] = data[j - 1];
+        j--;
       }
+      data[j] = mem;
     }
   }
   public static void main(String [] args) {
-    int[] a = {3,1,5,4,2};
-    insertionSort(a);
-    print(a);
+    int[] a = {3,1,4,5,2};
+    new InsertionSort().sort(a);
+    new InsertionSort().print(a);
   }
 
-  public static void print(int[] arr){
-    System.out.print("[");
-    for (int i = 0; i < arr.length; i++){
-      System.out.print(arr[i]);
-      if(i != arr.length - 1)
-        System.out.print(", ");
-    }
-    System.out.println("]");
-  }
 }

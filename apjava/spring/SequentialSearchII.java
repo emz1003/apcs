@@ -13,4 +13,8 @@ public class SequentialSearchII{
     2N + 1 comparisons, N + 1 assignments
     F(N = a(2N + 1) + b(N + 1)
   */
+
+  public static void main(String[] args){
+
+  }
 }

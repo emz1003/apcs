@@ -1,11 +1,12 @@
-public class BubbleShort{
+public class BubbleShort extends Sort{
   public static void main(String[] args) {
     int[] a = {3,1,5,4,2};
-    BubbleShort(a);
-    print(a);
+    new BubbleShort().sort(a);
+    new BubbleShort().print(a);
   }
 
-  public static void BubbleShort(int[] data){
+  @Override
+  public void sort(int[] data){
     final int N = data.length;
     boolean isExchanged = false;
     // N-1 passes
@@ -21,15 +22,5 @@ public class BubbleShort{
       }
       if (!isExchanged) break;
     }
-  }
-
-  public static void print(int[] arr){
-    System.out.print("[");
-    for (int i = 0; i < arr.length; i++){
-      System.out.print(arr[i]);
-      if(i != arr.length - 1)
-        System.out.print(", ");
-    }
-    System.out.println("]");
   }
 }
