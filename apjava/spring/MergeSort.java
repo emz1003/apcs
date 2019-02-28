@@ -1,3 +1,15 @@
+//Hw09:
+/*
+1. trace diagram
+  5,1,8,4,2,9,3
+  5,1,8,4   2,9,3
+  5,1 8,4   2   9,3
+  1,5 4,8   2   3,9
+  1,4,5,8   2,3,9
+  1,2,3,4,5,8,9
+
+*/
+
 public class MergeSort{
   // pre: a and b are sorted in ascending order
   // post: returns an array that contains every element of a and b in ascending order NO SIDE EFFECTS ARE PRODUCED
