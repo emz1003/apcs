@@ -33,10 +33,52 @@ public class MergeSort{
      return ans;
    }
 
+
+   // pre: data != null
+   // post: data is sorted in ascending order in O(NlogN) time and space
+   public static void mergeSort(int[] data){
+     final int N = data.length;
+     int[] aux = new int[N]; // O(N) additional space
+     msHelper(data, aux, 0, N); // [0, N)
+   }
+
+   // pre: 0 < = lo <= hi <= data.length;
+   private static void msHelper (int[] data, int[] aux, int lo, int hi){
+     if (hi - lo <= 1) return ;
+     int m = lo + (hi = lo) / 2;
+     msHelper(data, aux, lo, m);
+     msHelper(data, aux, lo, hi);
+     merge( data, aux, lo, m , hi);
+   }
+
+   // pre: data != null
+   // 0 <= lo <= m <= hi <= data.length
+   // elements within [lo, m) and [m, hi) are sorted
+   // post: elements withing [lo, hi) are sorted in O(N) time
+   public static void merge(int[] data, int[] aux, int lo, int m , int hi){
+     // step 1: copy elements within the region [lo, hi) from data into aux
+     // step 2: merge the copied elements from aux back into data
+
+     for (int i = lo; i < hi; i++){
+       aux[i] = data[i];
+     }
+
+     int c1 = lo , c2 = m , c3 = lo;
+     while ( c1 < m && c2 < hi ){
+       if (aux[c1] <= aux[c2]])
+        data[c3++] = aux[c1++];
+      else data[c3++] = aux[c2++];
+
+     }
+
+     while(c1 < m) data[c3++] = aux(c1++);
+     while(c2 < hi) data[c3++] = aux(c2++);  
+   }
+
   public static void main(String[] args){
-    int[] a = {4,6,9};
-    int[] b = {8,11};
-    print(merge(a,b));
+    int[] a = {4,6,9,8,11};
+    mergeSort(a);
+    print(a);
   }
 
   public static void print(int[] arr){
