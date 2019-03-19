@@ -21,27 +21,23 @@ public class BinaryHeap{
     //       at index i has heap property
     //
 
-    public static void heapify(int [] data, int i){
+    public static void heapify(int [] data, int i, int upper){
       int left = 2 * i + 1;
-      int right = left + 1;
-      if(left < data.length && data[left] > data[i] && (right >= data.length || data[left] > data[right])) {
-        swap(data, left, i);
-        if (left <= data.length / 2 - 1)
-          heapify(data, left);
+      int right = 2 * i + 2;
+      if (left >= upper) return;
+      int maxChildPos = left ? right < upper && data[right] > data[left] : right;
+      if ( data[i] < data[maxChildPos]){
+        swap(data, i, maxChildPos);
+        heapify(data, maxChildPos, upper);
       }
-
-      if(right < data.length && data[right] > data[i] && data[right] > data[left]){
-        swap(data, right, i);
-        heapify(data, right);
-      }
-      if (i > 0)
-        heapify(data, i - 1);
     }
 
       public static void buildHeap(int[] data){
         // starts with last parent: data.length / 2 - 1
-        heapify(data, data.length / 2 - 1);
-
+        //heapify(data, data.length / 2 - 1);
+        final int N = data.length; // Nlog(N)
+        for (int i = N / 2 - 1; i >= 0; i--)
+          heapify(data, i);
       }
 
       public static boolean isHeap(int [] data) {
@@ -56,6 +52,18 @@ public class BinaryHeap{
           return isHeapHelper(data, i + 1);
 
           //O(N)
+      }
+
+      public static void heapSort(int[] data){
+        final int N = data.length;
+        buildHeap(data); // O(N)
+        for( int i = 1; i < N, i++){
+          swap(data, 0, N - i);
+          // heap within [0, N - i]
+          // sorted region (N - i, N)
+          heapify(data, 0 , N - i);
+        }
+        // O(log N), no additonal space
       }
 
 
@@ -76,7 +84,8 @@ public class BinaryHeap{
 
          System.out.println();
 
-         int[] notHeap1 = {5,2,8,7,3,4,6,5};
+         int[] notHeap1 = {5,2,1,4,3};
+
          print(notHeap1);
          heapify(notHeap1, 1);
          System.out.println("heapified: ");
