@@ -51,7 +51,7 @@ public class CookieMonster{
       NodeStack<Integer[]> stack = new NodeStack<Integer[]>();  //saved points will be saved with [row, column, cookies]
       int x = 0;
       int y = 0;
-      int numCookies = board[0][0];
+      int numCookies = board[0];
       while(x <= N - 1 && y <= N - 1){
         if (x == N - 1 && y == N - 1) break;
         if(x == N - 1) {
