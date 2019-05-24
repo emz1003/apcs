@@ -1,0 +1,28 @@
+1. Review IntBST.java
+
+2. Add implementations for the preorder and postorder traversals.
+
+
+3. Assume a binary search tree is built from the sequence: 7,4,1,3,8,2,9,6,5
+
+   a. Given a preorder traversal, in what order are the nodes
+      visited?
+    7,4,1,3,2,6,5,8,9
+   b. How about a postorder traversal?
+    2,3,1,5,6,4,9,8,7
+   c. Inorder?
+    1,2,3,4,5,6,7,8,9
+
+
+   d. Draw the resulting tree.
+
+
+4. Provide a sequence that produces the following traversals:
+
+    Inorder: 1,2,3,4,5,6,7,8,9
+    Preorder: 1,2,3,4,5,6,7,8,9
+   
+
+5. What is the postorder traversal from the bst constructed in #4?
+
+6. Study for the AP exam. 

@@ -50,6 +50,20 @@ public class WordCollection{
       return -1;
     }
 
+    public int indexOf(String word) {
+      int lo = 0;
+      int hi = size();
+      int m = lo + (hi - lo) / 2;
+      while(! word.equals(collection,get(m))) {
+        if (word.compareTo(C\collection.get(m) = 0))  lo = m + 1;
+        else hi = m;
+        m = lo + (hi - lo) / 2
+      } if (hi - lo = 0) return -1;
+      while(m > 0 && word.equals(collection.get(m - 1)))
+        m--;
+      return m;
+    }
+
     // removes one instance of word from the collection if word is
     // present; otherwise, does nothing
     // O(N)

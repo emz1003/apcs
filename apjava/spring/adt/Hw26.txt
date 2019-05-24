@@ -1,0 +1,67 @@
+1. Review the following Node class.
+
+   public class Node<E>{
+       private Node<E> next;
+       private final E VALUE;
+
+       // constructor
+       public Node(E value, Node<E> next){
+       	      this.next = next;
+	      VALUE = value;
+       }
+
+       // accessor methods
+       public Node<E> getNext(){ return next;}
+       public E getValue() { return VALUE;}
+
+       // mutator methods
+       public void setNext(Node<E> x){ next = x; }
+
+       }
+
+  Sample usage:
+      // list is a linked list with the values 1,2,3.
+      Node<Integer> list = new Node<Integer>(1,new Node<Integer>(2,new Node<Integer>(3,null)));
+
+2. Given :
+
+   // precondition: p is either null or refers to a linkedlist of Node<Integer>
+   //               objects. Each value held within a node is nonnegative.
+   // postcondition: returns the maximum value.
+   public static int max(Node<Integer> p) {
+   	  int ans = 0;
+  	  while (p != null){
+  	  	if (p.getValue() > ans) max = p.getValue();
+  		p = p.getNext();
+  	  }
+  	  return ans;
+   }
+
+
+  Rewrite the max method by using recursion.
+
+
+2. Write a recursive  method print(Node<Integer> p ) to print the
+   values of the linkedlist starting at p. Print one value per line.
+
+
+       A call to print(list) produces the output:
+        1
+	2
+	3
+
+
+	public static void print(Node<Integer> p){
+	       // Your code goes here.
+	}
+
+3. Write a recursive method to print the values of a linked list in reverse
+   order.
+
+
+
+4. Write a recursive method to compute the length of a linked list.
+
+   public static int length(Node<Integer> p){
+   	  // Your code goes here.
+   }
